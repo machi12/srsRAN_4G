@@ -1,0 +1,253 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "lib/src/phy/utils/test/re_pattern_test"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_executable",
+			"link_directories",
+			"target_link_libraries",
+			"add_definitions",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"lib/src/phy/utils/test/CMakeLists.txt",
+			"CMakeLists.txt",
+			"lib/src/phy/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 66,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 294,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 67,
+				"parent" : 0
+			},
+			{
+				"file" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 2,
+				"line" : 61,
+				"parent" : 5
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 133,
+				"parent" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 264,
+				"parent" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 257,
+				"parent" : 2
+			},
+			{
+				"command" : 3,
+				"file" : 1,
+				"line" : 203,
+				"parent" : 2
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 174,
+				"parent" : 2
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 205,
+				"parent" : 2
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 293,
+				"parent" : 2
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 648,
+				"parent" : 2
+			},
+			{
+				"command" : 4,
+				"file" : 1,
+				"line" : 649,
+				"parent" : 2
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -march=native -Werror=incompatible-pointer-types -Wall -Wno-comment -Wno-write-strings -Wno-unused-result -Wformat -Wmissing-field-initializers -Wtype-limits -std=c99 -fno-strict-aliasing -D_GNU_SOURCE -Wno-unused-but-set-variable -ggdb -O0 -DDEBUG_MODE -DBUILD_TYPE_DEBUG -mfpmath=sse -msse4.1 -DLV_HAVE_SSE -fdiagnostics-color=always -Werror -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fPIE"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 7,
+					"define" : "ASSERTS_ENABLED"
+				},
+				{
+					"backtrace" : 8,
+					"define" : "DISABLE_RF"
+				},
+				{
+					"backtrace" : 9,
+					"define" : "ENABLE_TIMEPROF"
+				},
+				{
+					"backtrace" : 10,
+					"define" : "HAVE_PCSC"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 11,
+					"path" : "/opt/homebrew/Cellar/fftw/3.3.10_1/include"
+				},
+				{
+					"backtrace" : 12,
+					"path" : "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/System/Library/Frameworks/PCSC.framework/Headers"
+				},
+				{
+					"backtrace" : 13,
+					"path" : "/opt/homebrew/include"
+				},
+				{
+					"backtrace" : 14,
+					"path" : "/Users/machi/Desktop/Artifact/srsRAN_4G/cmake-build-debug/lib/include"
+				},
+				{
+					"backtrace" : 15,
+					"path" : "/Users/machi/Desktop/Artifact/srsRAN_4G/lib/include"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 4,
+			"id" : "srsran_phy::@ff75a69bd6f9fa6d3921"
+		}
+	],
+	"id" : "re_pattern_test::@8f4047db4f028f10212a",
+	"link" : 
+	{
+		"commandFragments" : 
+		[
+			{
+				"fragment" : "-Wall -Wno-comment -Wno-reorder -Wno-unused-variable -Wtype-limits -std=c++14 -fno-strict-aliasing -Wno-unused-but-set-variable -march=native -mfpmath=sse -msse4.1 -DLV_HAVE_SSE -ggdb -O0 -DDEBUG_MODE -DBUILD_TYPE_DEBUG -Werror -g",
+				"role" : "flags"
+			},
+			{
+				"fragment" : "",
+				"role" : "flags"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-L/opt/homebrew/lib",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/opt/homebrew/lib",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 4,
+				"fragment" : "lib/src/phy/libsrsran_phy.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "-lm",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 6,
+				"fragment" : "/opt/homebrew/Cellar/fftw/3.3.10_1/lib/libfftw3f.dylib",
+				"role" : "libraries"
+			}
+		],
+		"language" : "CXX"
+	},
+	"name" : "re_pattern_test",
+	"nameOnDisk" : "re_pattern_test",
+	"paths" : 
+	{
+		"build" : "lib/src/phy/utils/test",
+		"source" : "lib/src/phy/utils/test"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/utils/test/re_pattern_test.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "EXECUTABLE"
+}

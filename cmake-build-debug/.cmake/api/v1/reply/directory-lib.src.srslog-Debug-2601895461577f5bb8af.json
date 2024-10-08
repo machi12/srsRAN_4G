@@ -1,0 +1,46 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"lib/src/srslog/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 45,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"isOptional" : true,
+			"paths" : 
+			[
+				"lib/src/srslog/libsrslog.a"
+			],
+			"targetId" : "srslog::@ad47f0aceb6ab6835148",
+			"targetIndex" : 201,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "lib/src/srslog",
+		"source" : "lib/src/srslog"
+	}
+}

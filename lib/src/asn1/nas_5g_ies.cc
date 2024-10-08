@@ -2110,6 +2110,22 @@ SRSASN_CODE nb_n1_mode_drx_parameters_t::unpack(asn1::cbit_ref& bref)
   return SRSASN_SUCCESS;
 }
 
+// machi：对随机数N进行打包的函数
+// IE: Authentication parameter N
+SRSASN_CODE authentication_parameter_n_t::pack(asn1::bit_ref& bref)
+{
+  HANDLE_CODE(bref.pack_bytes(n.data(), 16));
+  return SRSASN_SUCCESS;
+}
+
+// machi：对随机数N进行解包的函数
+// IE: Authentication parameter N
+SRSASN_CODE authentication_parameter_n_t::unpack(asn1::cbit_ref& bref)
+{
+  HANDLE_CODE(bref.unpack_bytes(n.data(), 16));
+  return SRSASN_SUCCESS;
+}
+
 const char* nb_n1_mode_drx_parameters_t::nb_n1_mode_drx_value_type_::to_string() const
 {
   switch (value) {
@@ -3494,6 +3510,22 @@ SRSASN_CODE authentication_parameter_autn_t::unpack(asn1::cbit_ref& bref)
   }
   autn.resize(length);
   HANDLE_CODE(bref.unpack_bytes(autn.data(), length));
+  return SRSASN_SUCCESS;
+}
+
+// machi：增加对SNMAC进行打包的函数
+// IE: Authentication parameter SNMAC
+SRSASN_CODE authentication_parameter_snmac_t::pack(asn1::bit_ref& bref)
+{
+  HANDLE_CODE(bref.pack_bytes(snmac.data(), 8));
+  return SRSASN_SUCCESS;
+}
+
+// machi：增加对SNMAC进行解包的函数
+// IE: Authentication parameter SNMAC
+SRSASN_CODE authentication_parameter_snmac_t::unpack(asn1::cbit_ref& bref)
+{
+  HANDLE_CODE(bref.unpack_bytes(snmac.data(), 8));
   return SRSASN_SUCCESS;
 }
 

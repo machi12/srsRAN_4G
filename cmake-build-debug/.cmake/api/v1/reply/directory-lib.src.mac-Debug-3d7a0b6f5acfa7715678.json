@@ -1,0 +1,46 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"lib/src/mac/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 25,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"isOptional" : true,
+			"paths" : 
+			[
+				"lib/src/mac/libsrsran_mac.a"
+			],
+			"targetId" : "srsran_mac::@d99b061c8453fcf8555b",
+			"targetIndex" : 224,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "lib/src/mac",
+		"source" : "lib/src/mac"
+	}
+}

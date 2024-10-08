@@ -18,6 +18,10 @@
 # and at http://www.gnu.org/licenses/.
 #
 
+# machi
+set(CMAKE_PREFIX_PATH "/opt/homebrew/Cellar/libconfig/1.7.3")
+include_directories(/opt/homebrew/Cellar/libusrsctp/0.9.5.0_1/include)
+
 find_package(LibConfig REQUIRED)
 find_package(SCTP REQUIRED)
 

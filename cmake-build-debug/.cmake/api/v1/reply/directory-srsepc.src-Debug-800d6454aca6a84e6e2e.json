@@ -1,0 +1,65 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"srsepc/src/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 79,
+				"parent" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 80,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"isOptional" : true,
+			"paths" : 
+			[
+				"srsepc/src/srsepc"
+			],
+			"targetId" : "srsepc::@31eb63d5a1d748036bfa",
+			"targetIndex" : 196,
+			"type" : "target"
+		},
+		{
+			"backtrace" : 2,
+			"component" : "Unspecified",
+			"destination" : "bin",
+			"isOptional" : true,
+			"paths" : 
+			[
+				"srsepc/src/srsmbms"
+			],
+			"targetId" : "srsmbms::@31eb63d5a1d748036bfa",
+			"targetIndex" : 204,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "srsepc/src",
+		"source" : "srsepc/src"
+	}
+}

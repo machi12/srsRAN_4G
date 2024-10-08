@@ -1,0 +1,986 @@
+{
+	"inputs" : 
+	[
+		{
+			"path" : "CMakeLists.txt"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/CMakeFiles/3.23.2/CMakeSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInitialize.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin-Initialize.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/CMakeFiles/3.23.2/CMakeCCompiler.cmake"
+		},
+		{
+			"isGenerated" : true,
+			"path" : "cmake-build-debug/CMakeFiles/3.23.2/CMakeCXXCompiler.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeSystemSpecificInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeGenericSystem.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeInitializeConfigs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Darwin.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/UnixPaths.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/GNU.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/CMakeCommonCompilerMacros.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-C.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCXXInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeLanguageInformation.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/AppleClang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Compiler/Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-AppleClang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang-CXX.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Platform/Apple-Clang.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCommonLanguageInclude.cmake"
+		},
+		{
+			"path" : "cmake/modules/SRSRANVersion.cmake"
+		},
+		{
+			"path" : "cmake/modules/SRSRANPackage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CPack.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CPackComponent.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Templates/CPackConfig.cmake.in"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Templates/CPackConfig.cmake.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CTest.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CTestUseLaunchers.cmake"
+		},
+		{
+			"path" : "CTestConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CTestTargets.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/DartConfiguration.tcl.in"
+		},
+		{
+			"path" : "CTestCustom.cmake.in"
+		},
+		{
+			"path" : "cmake/modules/SRSRANbuildinfo.cmake.in"
+		},
+		{
+			"path" : "cmake/modules/CheckAtomic.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCXXSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "cmake/modules/FindFFTW3F.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPkgConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "cmake/modules/FindMbedTLS.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPkgConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "cmake/modules/FindPCSCLite.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPkgConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "cmake/modules/FindUHD.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPkgConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCXXSourceCompiles.cmake"
+		},
+		{
+			"path" : "cmake/modules/FindSKIQ.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPkgConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "cmake/modules/FindbladeRF.cmake"
+		},
+		{
+			"path" : "cmake/modules/FindSoapySDR.cmake"
+		},
+		{
+			"path" : "cmake/modules/FindZeroMQ.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindBoost.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/Boost-1.86.0/BoostConfigVersion.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/Boost-1.86.0/BoostConfig.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/boost_headers-1.86.0/boost_headers-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/boost_headers-1.86.0/boost_headers-config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/boost_program_options-1.86.0/boost_program_options-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/boost_program_options-1.86.0/boost_program_options-config.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/BoostDetectToolset-1.86.0.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/boost_program_options-1.86.0/libboost_program_options-variant-mt-shared.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/boost_program_options-1.86.0/libboost_program_options-variant-mt-static.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/boost_program_options-1.86.0/libboost_program_options-variant-shared.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/boost_program_options-1.86.0/libboost_program_options-variant-static.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/boost_headers-1.86.0/boost_headers-config-version.cmake"
+		},
+		{
+			"isExternal" : true,
+			"path" : "/opt/homebrew/lib/cmake/boost_headers-1.86.0/boost_headers-config.cmake"
+		},
+		{
+			"path" : "cmake/modules/FindSRSGUI.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPkgConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "cmake/modules/FindBackward.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "cmake/modules/SRSRAN_install_configs.sh.in"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCXXCompilerFlag.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCXXSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckCompilerFlag.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckFlagCommonConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CMakeCheckCompilerFlagCommonPatterns.cmake"
+		},
+		{
+			"path" : "cmake/modules/FindSSE.cmake"
+		},
+		{
+			"path" : "cmake/modules/CheckCSourceRuns.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCCompilerFlag.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/Internal/CheckCompilerFlag.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCXXCompilerFlag.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCCompilerFlag.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCCompilerFlag.cmake"
+		},
+		{
+			"path" : "cmake/modules/FindSSE.cmake"
+		},
+		{
+			"path" : "cmake/modules/CheckCSourceRuns.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCCompilerFlag.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCXXCompilerFlag.cmake"
+		},
+		{
+			"path" : "cmake_uninstall.cmake.in"
+		},
+		{
+			"path" : "lib/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/asn1/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/common/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/common/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/mac/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/mac/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/agc/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/ch_estimation/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/ch_estimation/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/common/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/common/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/fec/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/fec/block/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/fec/block/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/fec/convolutional/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/fec/convolutional/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/fec/ldpc/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/fec/ldpc/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/fec/polar/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/fec/polar/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/fec/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/fec/turbo/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/fec/turbo/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/mimo/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/mimo/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/phch/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/phch/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/rf/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/sync/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/sync/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/utils/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/utils/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/channel/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/channel/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/dft/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/dft/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/io/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/modem/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/modem/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/resampling/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/resampling/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/scrambling/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/scrambling/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/ue/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/ue/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/enb/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/gnb/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/cfr/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/phy/cfr/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/radio/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/radio/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/rlc/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/pdcp/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/gtpu/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/srslog/CMakeLists.txt"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "lib/src/support/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/src/system/CMakeLists.txt"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindThreads.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckLibraryExists.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckIncludeFile.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/CheckCSourceCompiles.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "lib/include/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/include/srsran/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/include/srsran/version.h.in"
+		},
+		{
+			"path" : "lib/examples/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/examples/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/test/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/test/asn1/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/test/common/CMakeLists.txt"
+		},
+		{
+			"path" : "cmake/modules/FindSCTP.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPkgConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "lib/test/phy/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/test/srslog/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/test/rlc/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/test/pdcp/CMakeLists.txt"
+		},
+		{
+			"path" : "lib/test/adt/CMakeLists.txt"
+		},
+		{
+			"path" : "srsepc/CMakeLists.txt"
+		},
+		{
+			"path" : "cmake/modules/FindLibConfig.cmake"
+		},
+		{
+			"path" : "cmake/modules/FindSCTP.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPkgConfig.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageHandleStandardArgs.cmake"
+		},
+		{
+			"isCMake" : true,
+			"isExternal" : true,
+			"path" : "/Applications/CLion.app/Contents/bin/cmake/mac/share/cmake-3.23/Modules/FindPackageMessage.cmake"
+		},
+		{
+			"path" : "srsepc/src/CMakeLists.txt"
+		},
+		{
+			"path" : "srsepc/src/mme/CMakeLists.txt"
+		},
+		{
+			"path" : "srsepc/src/hss/CMakeLists.txt"
+		},
+		{
+			"path" : "srsepc/src/spgw/CMakeLists.txt"
+		},
+		{
+			"path" : "srsepc/src/mbms-gw/CMakeLists.txt"
+		},
+		{
+			"path" : "test/CMakeLists.txt"
+		},
+		{
+			"path" : "test/phy/CMakeLists.txt"
+		}
+	],
+	"kind" : "cmakeFiles",
+	"paths" : 
+	{
+		"build" : "/Users/machi/Desktop/Artifact/srsRAN_4G/cmake-build-debug",
+		"source" : "/Users/machi/Desktop/Artifact/srsRAN_4G"
+	},
+	"version" : 
+	{
+		"major" : 1,
+		"minor" : 0
+	}
+}

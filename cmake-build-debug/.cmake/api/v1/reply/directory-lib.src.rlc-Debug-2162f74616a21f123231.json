@@ -1,0 +1,46 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"lib/src/rlc/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 35,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"isOptional" : true,
+			"paths" : 
+			[
+				"lib/src/rlc/libsrsran_rlc.a"
+			],
+			"targetId" : "srsran_rlc::@d0ba2fa1ef29608eea77",
+			"targetIndex" : 232,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "lib/src/rlc",
+		"source" : "lib/src/rlc"
+	}
+}

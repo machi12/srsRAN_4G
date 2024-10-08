@@ -53,10 +53,21 @@ public:
                                                     uint8_t*    res_star,
                                                     uint8_t*    k_amf);
 
+  // machi：增加对新函数的声明
+  auth_result_t generate_authentication_response_5g_new(uint8_t*    rand,
+                                                        uint8_t*    autn_enb,
+                                                        uint8_t*    snmac,
+                                                        const char* serving_network_name,
+                                                        uint8_t*    abba,
+                                                        uint32_t    abba_len,
+                                                        uint8_t*    res_star,
+                                                        uint8_t*    k_amf);
+
 private:
-  auth_result_t
-                gen_auth_res_milenage(uint8_t* rand, uint8_t* autn_enb, uint8_t* res, int* res_len, uint8_t* ak_xor_sqn);
+  auth_result_t gen_auth_res_milenage(uint8_t* rand, uint8_t* autn_enb, uint8_t* res, int* res_len, uint8_t* ak_xor_sqn);
   auth_result_t gen_auth_res_xor(uint8_t* rand, uint8_t* autn_enb, uint8_t* res, int* res_len, uint8_t* ak_xor_sqn);
+  // machi：增加函数的声明
+  auth_result_t gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, uint8_t* snmac, uint8_t* res, int* res_len);
 
   // Helpers
   virtual std::string get_mnc_str(const uint8_t* imsi_vec, std::string mcc_str) final;

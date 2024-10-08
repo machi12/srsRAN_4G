@@ -1,0 +1,46 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"lib/src/pdcp/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 28,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"isOptional" : true,
+			"paths" : 
+			[
+				"lib/src/pdcp/libsrsran_pdcp.a"
+			],
+			"targetId" : "srsran_pdcp::@7759f0a017a80e028157",
+			"targetIndex" : 227,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "lib/src/pdcp",
+		"source" : "lib/src/pdcp"
+	}
+}

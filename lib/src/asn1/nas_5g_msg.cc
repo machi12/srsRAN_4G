@@ -170,9 +170,17 @@ SRSASN_CODE registration_request_t::pack(asn1::bit_ref& bref)
     HANDLE_CODE(bref.pack(ie_iei_requested_nb_n1_mode_drx_parameters, 8));
     HANDLE_CODE(requested_nb_n1_mode_drx_parameters.pack(bref));
   }
+  // machi：在注册请求消息中增加对随机数N的打包操作
+  if (authentication_parameter_n_present == true) {
+    // 首先打包随机数N的IEI
+    HANDLE_CODE(bref.pack(ie_iei_authentication_parameter_n, 8));
+    // 然后打包随机数N的值
+    HANDLE_CODE(authentication_parameter_n.pack(bref));
+  }
 
   return SRSASN_SUCCESS;
 }
+
 SRSASN_CODE registration_request_t::unpack(asn1::cbit_ref& bref)
 {
   // Mandatory fields
@@ -1484,6 +1492,8 @@ SRSASN_CODE authentication_request_t::pack(asn1::bit_ref& bref)
 
   return SRSASN_SUCCESS;
 }
+
+// machi：对认证请求消息进行解包的函数
 SRSASN_CODE authentication_request_t::unpack(asn1::cbit_ref& bref)
 {
   // Mandatory fields
@@ -1504,6 +1514,7 @@ SRSASN_CODE authentication_request_t::unpack(asn1::cbit_ref& bref)
       iei = iei << 4 | iei_tmp;
     }
 
+    // 根据IEI对剩余可选字段进行解包
     switch (iei) {
       case ie_iei_authentication_parameter_rand:
         authentication_parameter_rand_present = true;
@@ -1516,6 +1527,11 @@ SRSASN_CODE authentication_request_t::unpack(asn1::cbit_ref& bref)
       case ie_iei_eap_message:
         eap_message_present = true;
         HANDLE_CODE(eap_message.unpack(bref));
+        break;
+      case ie_iei_authentication_parameter_snmac:
+        // 如果数据包中存在snmac的IEI
+        authentication_parameter_snmac_present = true;
+        HANDLE_CODE(authentication_parameter_snmac.unpack(bref));
         break;
       default:
         asn1::log_error("Invalid IE %x", iei);
@@ -3639,6 +3655,7 @@ SRSASN_CODE nas_5gs_msg::pack(std::vector<uint8_t>& buf)
   return SRSASN_SUCCESS;
 }
 
+// machi：总体的打包函数，根据不同的消息类型来分别调用对应的打包函数
 SRSASN_CODE nas_5gs_msg::pack(asn1::bit_ref& msg_bref)
 {
   HANDLE_CODE(hdr.pack(msg_bref));
@@ -3913,6 +3930,7 @@ SRSASN_CODE nas_5gs_msg::unpack(const std::vector<uint8_t>& buf)
   return SRSASN_SUCCESS;
 }
 
+// machi：进行解包的总的函数
 SRSASN_CODE nas_5gs_msg::unpack(asn1::cbit_ref& msg_bref)
 {
   HANDLE_CODE(hdr.unpack(msg_bref));
@@ -4000,6 +4018,7 @@ SRSASN_CODE nas_5gs_msg::unpack(asn1::cbit_ref& msg_bref)
       break;
     }
     case msg_types::options::authentication_request: {
+      // machi：重点关注对认证请求消息进行解包的过程
       msg_container                 = srslog::detail::any{authentication_request_t()};
       authentication_request_t* msg = srslog::detail::any_cast<authentication_request_t>(&msg_container);
       HANDLE_CODE(msg->unpack(msg_bref));

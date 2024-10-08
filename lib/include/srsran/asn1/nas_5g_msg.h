@@ -81,6 +81,8 @@ public:
   bool requested_wus_assistance_information_present      = false;
   bool n5gc_indication_present                           = false;
   bool requested_nb_n1_mode_drx_parameters_present       = false;
+  // machi：用于判断是否要填充随机数N
+  bool authentication_parameter_n_present                = false;
 
   key_set_identifier_t               non_current_native_nas_key_set_identifier;
   capability_5gmm_t                  capability_5gmm;
@@ -114,6 +116,8 @@ public:
   wus_assistance_information_t       requested_wus_assistance_information;
   n5gc_indication_t                  n5gc_indication;
   nb_n1_mode_drx_parameters_t        requested_nb_n1_mode_drx_parameters;
+  // machi：增加一个代表随机数N的变量
+  authentication_parameter_n_t       authentication_parameter_n;
 
   const static uint8_t ie_iei_non_current_native_nas_key_set_identifier = 0xC;
   const static uint8_t ie_iei_capability_5gmm                           = 0x10;
@@ -147,6 +151,8 @@ public:
   const static uint8_t ie_iei_requested_wus_assistance_information      = 0x1A;
   const static uint8_t ie_iei_n5gc_indication                           = 0xA;
   const static uint8_t ie_iei_requested_nb_n1_mode_drx_parameters       = 0x30;
+  // machi：增加随机数N对应的IEI
+  const static uint8_t ie_iei_authentication_parameter_n                = 0x29;
 
 public:
   SRSASN_CODE pack(asn1::bit_ref& bref);
@@ -660,6 +666,7 @@ public:
  *          Based on 3GPP TS 24.501 v16.7.0
  */
 
+// machi：认证请求消息类
 class authentication_request_t
 {
 public:
@@ -669,17 +676,21 @@ public:
   abba_t               abba;
 
   // Optional fields
-  bool authentication_parameter_rand_present = false;
-  bool authentication_parameter_autn_present = false;
-  bool eap_message_present                   = false;
+  bool authentication_parameter_rand_present  = false;
+  bool authentication_parameter_autn_present  = false;
+  bool eap_message_present                    = false;
+  // 认证请求消息中是否有snmac
+  bool authentication_parameter_snmac_present = false;
 
-  authentication_parameter_rand_t authentication_parameter_rand;
-  authentication_parameter_autn_t authentication_parameter_autn;
-  eap_message_t                   eap_message;
+  authentication_parameter_rand_t  authentication_parameter_rand;
+  authentication_parameter_autn_t  authentication_parameter_autn;
+  eap_message_t                    eap_message;
+  authentication_parameter_snmac_t authentication_parameter_snmac;
 
-  const static uint8_t ie_iei_authentication_parameter_rand = 0x21;
-  const static uint8_t ie_iei_authentication_parameter_autn = 0x20;
-  const static uint8_t ie_iei_eap_message                   = 0x78;
+  const static uint8_t ie_iei_authentication_parameter_rand  = 0x21;
+  const static uint8_t ie_iei_authentication_parameter_autn  = 0x20;
+  const static uint8_t ie_iei_eap_message                    = 0x78;
+  const static uint8_t ie_iei_authentication_parameter_snmac = 0x99;
 
 public:
   SRSASN_CODE pack(asn1::bit_ref& bref);

@@ -295,6 +295,9 @@ LIBLTE_ERROR_ENUM liblte_security_decryption_eea3(uint8* key,
 // Functions
 LIBLTE_ERROR_ENUM liblte_security_milenage_f1(uint8* k, uint8* op, uint8* rand, uint8* sqn, uint8* amf, uint8* mac_a);
 
+// machi：声明新的f1函数
+LIBLTE_ERROR_ENUM liblte_security_milenage_f1_new(uint8* k, uint8* op_c, uint8* rand, uint8* mac_a);
+
 /*********************************************************************
     Name: liblte_security_milenage_f1_star
 
@@ -326,8 +329,10 @@ liblte_security_milenage_f1_star(uint8* k, uint8* op, uint8* rand, uint8* sqn, u
 // Enums
 // Structs
 // Functions
-LIBLTE_ERROR_ENUM
-liblte_security_milenage_f2345(uint8* k, uint8* op, uint8* rand, uint8* res, uint8* ck, uint8* ik, uint8* ak);
+LIBLTE_ERROR_ENUM liblte_security_milenage_f2345(uint8* k, uint8* op, uint8* rand, uint8* res, uint8* ck, uint8* ik, uint8* ak);
+
+// machi：声明新的f2345函数
+LIBLTE_ERROR_ENUM liblte_security_milenage_f2345_new(uint8* k, uint8* op_c, uint8* rand, uint8* res, uint8* ck, uint8* ik, uint8* ak);
 
 /*********************************************************************
     Name: liblte_security_milenage_f5_star

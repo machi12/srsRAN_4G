@@ -1,0 +1,363 @@
+{
+	"artifacts" : 
+	[
+		{
+			"path" : "lib/src/phy/utils/CMakeFiles/srsran_utils.dir/./bit.c.o"
+		},
+		{
+			"path" : "lib/src/phy/utils/CMakeFiles/srsran_utils.dir/./cexptab.c.o"
+		},
+		{
+			"path" : "lib/src/phy/utils/CMakeFiles/srsran_utils.dir/./convolution.c.o"
+		},
+		{
+			"path" : "lib/src/phy/utils/CMakeFiles/srsran_utils.dir/./debug.c.o"
+		},
+		{
+			"path" : "lib/src/phy/utils/CMakeFiles/srsran_utils.dir/./filter.c.o"
+		},
+		{
+			"path" : "lib/src/phy/utils/CMakeFiles/srsran_utils.dir/./mat.c.o"
+		},
+		{
+			"path" : "lib/src/phy/utils/CMakeFiles/srsran_utils.dir/./phy_logger.c.o"
+		},
+		{
+			"path" : "lib/src/phy/utils/CMakeFiles/srsran_utils.dir/./primes.c.o"
+		},
+		{
+			"path" : "lib/src/phy/utils/CMakeFiles/srsran_utils.dir/./random.cpp.o"
+		},
+		{
+			"path" : "lib/src/phy/utils/CMakeFiles/srsran_utils.dir/./re_pattern.c.o"
+		},
+		{
+			"path" : "lib/src/phy/utils/CMakeFiles/srsran_utils.dir/./ringbuffer.c.o"
+		},
+		{
+			"path" : "lib/src/phy/utils/CMakeFiles/srsran_utils.dir/./vector.c.o"
+		},
+		{
+			"path" : "lib/src/phy/utils/CMakeFiles/srsran_utils.dir/./vector_simd.c.o"
+		}
+	],
+	"backtrace" : 1,
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"add_library",
+			"add_definitions",
+			"include_directories"
+		],
+		"files" : 
+		[
+			"lib/src/phy/utils/CMakeLists.txt",
+			"CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 22,
+				"parent" : 0
+			},
+			{
+				"file" : 1
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 133,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 264,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 257,
+				"parent" : 2
+			},
+			{
+				"command" : 1,
+				"file" : 1,
+				"line" : 203,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 174,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 205,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 293,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 648,
+				"parent" : 2
+			},
+			{
+				"command" : 2,
+				"file" : 1,
+				"line" : 649,
+				"parent" : 2
+			}
+		]
+	},
+	"compileGroups" : 
+	[
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -march=native -Werror=incompatible-pointer-types -Wall -Wno-comment -Wno-write-strings -Wno-unused-result -Wformat -Wmissing-field-initializers -Wtype-limits -std=c99 -fno-strict-aliasing -D_GNU_SOURCE -Wno-unused-but-set-variable -ggdb -O0 -DDEBUG_MODE -DBUILD_TYPE_DEBUG -mfpmath=sse -msse4.1 -DLV_HAVE_SSE -fdiagnostics-color=always -Werror -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fPIC"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 3,
+					"define" : "ASSERTS_ENABLED"
+				},
+				{
+					"backtrace" : 4,
+					"define" : "DISABLE_RF"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "ENABLE_TIMEPROF"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "HAVE_PCSC"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 7,
+					"path" : "/opt/homebrew/Cellar/fftw/3.3.10_1/include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/System/Library/Frameworks/PCSC.framework/Headers"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "/opt/homebrew/include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/Users/machi/Desktop/Artifact/srsRAN_4G/cmake-build-debug/lib/include"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "/Users/machi/Desktop/Artifact/srsRAN_4G/lib/include"
+				}
+			],
+			"language" : "C",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				9,
+				10,
+				11,
+				12
+			]
+		},
+		{
+			"compileCommandFragments" : 
+			[
+				{
+					"fragment" : " -Wall -Wno-comment -Wno-reorder -Wno-unused-variable -Wtype-limits -std=c++14 -fno-strict-aliasing -Wno-unused-but-set-variable -march=native -mfpmath=sse -msse4.1 -DLV_HAVE_SSE -ggdb -O0 -DDEBUG_MODE -DBUILD_TYPE_DEBUG -Werror -g -arch x86_64 -isysroot /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk -fPIC"
+				}
+			],
+			"defines" : 
+			[
+				{
+					"backtrace" : 3,
+					"define" : "ASSERTS_ENABLED"
+				},
+				{
+					"backtrace" : 4,
+					"define" : "DISABLE_RF"
+				},
+				{
+					"backtrace" : 5,
+					"define" : "ENABLE_TIMEPROF"
+				},
+				{
+					"backtrace" : 6,
+					"define" : "HAVE_PCSC"
+				}
+			],
+			"includes" : 
+			[
+				{
+					"backtrace" : 7,
+					"path" : "/opt/homebrew/Cellar/fftw/3.3.10_1/include"
+				},
+				{
+					"backtrace" : 8,
+					"path" : "/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX14.5.sdk/System/Library/Frameworks/PCSC.framework/Headers"
+				},
+				{
+					"backtrace" : 9,
+					"path" : "/opt/homebrew/include"
+				},
+				{
+					"backtrace" : 10,
+					"path" : "/Users/machi/Desktop/Artifact/srsRAN_4G/cmake-build-debug/lib/include"
+				},
+				{
+					"backtrace" : 11,
+					"path" : "/Users/machi/Desktop/Artifact/srsRAN_4G/lib/include"
+				}
+			],
+			"language" : "CXX",
+			"sourceIndexes" : 
+			[
+				8
+			]
+		}
+	],
+	"id" : "srsran_utils::@39b826a437775980a378",
+	"name" : "srsran_utils",
+	"paths" : 
+	{
+		"build" : "lib/src/phy/utils",
+		"source" : "lib/src/phy/utils"
+	},
+	"sourceGroups" : 
+	[
+		{
+			"name" : "Source Files",
+			"sourceIndexes" : 
+			[
+				0,
+				1,
+				2,
+				3,
+				4,
+				5,
+				6,
+				7,
+				8,
+				9,
+				10,
+				11,
+				12
+			]
+		}
+	],
+	"sources" : 
+	[
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/utils/bit.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/utils/cexptab.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/utils/convolution.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/utils/debug.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/utils/filter.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/utils/mat.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/utils/phy_logger.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/utils/primes.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 1,
+			"path" : "lib/src/phy/utils/random.cpp",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/utils/re_pattern.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/utils/ringbuffer.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/utils/vector.c",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"compileGroupIndex" : 0,
+			"path" : "lib/src/phy/utils/vector_simd.c",
+			"sourceGroupIndex" : 0
+		}
+	],
+	"type" : "OBJECT_LIBRARY"
+}

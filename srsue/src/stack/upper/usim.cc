@@ -126,6 +126,7 @@ auth_result_t usim::generate_authentication_response(uint8_t* rand,
   return auth_result;
 }
 
+// machi：5G-AKA（通用的实现，不需要与硬件SIM卡进行交互，直接模拟SIM卡的相关操作）
 auth_result_t usim::generate_authentication_response_5g(uint8_t*    rand,
                                                         uint8_t*    autn_enb,
                                                         const char* serving_network_name,
@@ -135,18 +136,22 @@ auth_result_t usim::generate_authentication_response_5g(uint8_t*    rand,
                                                         uint8_t*    k_amf)
 {
   auth_result_t auth_result;
+  // 定义认证相关变量
   uint8_t       ak_xor_sqn[6];
   uint8_t       res[16];
   uint8_t       k_ausf[32];
   uint8_t       k_seaf[32];
   int           res_len;
 
+  // 根据变量auth_algo来选择认证算法
   if (auth_algo_xor == auth_algo) {
     auth_result = gen_auth_res_xor(rand, autn_enb, res, &res_len, ak_xor_sqn);
   } else {
+    // 一般来说使用下面这个
     auth_result = gen_auth_res_milenage(rand, autn_enb, res, &res_len, ak_xor_sqn);
   }
 
+  // 如果认证成功
   if (auth_result == AUTH_OK) {
     // Generate RES STAR
     security_generate_res_star(ck, ik, serving_network_name, rand, res, res_len, res_star);
@@ -166,22 +171,72 @@ auth_result_t usim::generate_authentication_response_5g(uint8_t*    rand,
   return auth_result;
 }
 
+// machi：5G-RNAKA（通用的实现，不需要与硬件SIM卡进行交互，直接模拟SIM卡的相关操作）
+auth_result_t usim::generate_authentication_response_5g_new(uint8_t*    rand,
+                                                            uint8_t*    autn_enb,
+                                                            uint8_t*    snmac,
+                                                            const char* serving_network_name,
+                                                            uint8_t*    abba,
+                                                            uint32_t    abba_len,
+                                                            uint8_t*    res_star,
+                                                            uint8_t*    k_amf)
+{
+  auth_result_t auth_result;
+  // 定义认证相关变量
+  uint8_t       res[16];
+  uint8_t       k_ausf[32];
+  uint8_t       k_seaf[32];
+  int           res_len;
+
+  // 根据变量auth_algo来选择认证算法
+  if (auth_algo_xor == auth_algo) {
+    auth_result = gen_auth_res_xor(rand, autn_enb, res, &res_len, ak_xor_sqn);
+  } else {
+    // 一般来说使用下面这个
+    auth_result = gen_auth_res_milenage_new(rand, autn_enb, snmac, res, &res_len);
+  }
+
+  // 如果认证成功
+  if (auth_result == AUTH_OK) {
+    // Generate RES STAR
+    security_generate_res_star(ck, ik, serving_network_name, rand, res, res_len, res_star);
+    logger.debug(res_star, 16, "RES STAR");
+    // Generate K_ausf
+    // 由于不存在ak_xor_sqn，因此需要将其替换为AUTN的前48bit
+    uint8_t temp[6];
+    memcpy(temp, autn_enb, 6);
+    security_generate_k_ausf(ck, ik, temp, serving_network_name, k_ausf);
+    logger.debug(k_ausf, 32, "K AUSF");
+    // Generate K_seaf
+    security_generate_k_seaf(k_ausf, serving_network_name, k_seaf);
+    logger.debug(k_seaf, 32, "K SEAF");
+    // Generate K_seaf
+    logger.debug(abba, abba_len, "ABBA:");
+    logger.debug("IMSI: %s", imsi_str.c_str());
+    security_generate_k_amf(k_seaf, imsi_str.c_str(), abba, abba_len, k_amf);
+    logger.debug(k_amf, 32, "K AMF");
+  }
+  return auth_result;
+}
+
 /*******************************************************************************
   Helpers
 *******************************************************************************/
 
-auth_result_t
-usim::gen_auth_res_milenage(uint8_t* rand, uint8_t* autn_enb, uint8_t* res, int* res_len, uint8_t* ak_xor_sqn)
+// machi：认证算法-auth_algo_milenage（好像只验证了MAC对不对，并没有验证SQN对不对）
+auth_result_t usim::gen_auth_res_milenage(uint8_t* rand, uint8_t* autn_enb, uint8_t* res, int* res_len, uint8_t* ak_xor_sqn)
 {
   auth_result_t result = AUTH_OK;
   uint32_t      i;
   uint8_t       sqn[6];
 
+  // 调用f2345函数进行计算
   // Use RAND and K to compute RES, CK, IK and AK
   security_milenage_f2345(k, opc, rand, res, ck, ik, ak);
 
   *res_len = 8;
 
+  // 获取SQNHN
   // Extract sqn from autn
   for (i = 0; i < 6; i++) {
     sqn[i] = autn_enb[i] ^ ak[i];
@@ -191,9 +246,11 @@ usim::gen_auth_res_milenage(uint8_t* rand, uint8_t* autn_enb, uint8_t* res, int*
     amf[i] = autn_enb[6 + i];
   }
 
+  // 调用f1函数来计算MAC
   // Generate MAC
   security_milenage_f1(k, opc, rand, sqn, amf, mac);
 
+  // 这里的逻辑和协议本身有点不对，但是也是可以的。按照协议来说直接比较两个MAC就行，他这里是根据上面计算得到的重新构建了一个AUTN，然后比较的是两个AUTN的值
   // Construct AUTN
   for (i = 0; i < 6; i++) {
     autn[i] = sqn[i] ^ ak[i];
@@ -205,6 +262,7 @@ usim::gen_auth_res_milenage(uint8_t* rand, uint8_t* autn_enb, uint8_t* res, int*
     autn[8 + i] = mac[i];
   }
 
+  // 与比较MAC的作用相同
   // Compare AUTNs
   for (i = 0; i < 16; i++) {
     if (autn[i] != autn_enb[i]) {
@@ -212,6 +270,7 @@ usim::gen_auth_res_milenage(uint8_t* rand, uint8_t* autn_enb, uint8_t* res, int*
     }
   }
 
+  // 计算ak异或SNQ
   for (i = 0; i < 6; i++) {
     ak_xor_sqn[i] = sqn[i] ^ ak[i];
   }
@@ -226,6 +285,58 @@ usim::gen_auth_res_milenage(uint8_t* rand, uint8_t* autn_enb, uint8_t* res, int*
   return result;
 }
 
+// machi：5G-RNAKA的认证算法-auth_algo_milenage（好像只验证了MAC对不对，并没有验证SQN对不对）
+auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, uint8_t* snmac, uint8_t* res, int* res_len)
+{
+  auth_result_t result = AUTH_OK;
+  uint32_t      i;
+
+  // 调用f2345函数进行计算（使用新的函数）
+  // Use RAND and K to compute RES, CK, IK and AK
+  security_milenage_f2345_new(k, opc, rand, res, ck, ik, ak_new);
+
+  *res_len = 8;
+
+  // 调用f1函数来计算MAC（使用新的函数）
+  // Generate MAC
+  security_milenage_f1_new(k, opc, rand, mac);
+
+  // 这里的逻辑和协议本身有点不对，但是也是可以的。按照协议来说直接比较两个MAC就行，他这里是根据上面计算得到的重新构建了一个AUTN，然后比较的是两个AUTN的值
+  // Construct AUTN
+  for (i = 0; i < 6; i++) {
+    autn[i] = sqn[i] ^ ak[i];
+  }
+  for (i = 0; i < 2; i++) {
+    autn[6 + i] = amf[i];
+  }
+  for (i = 0; i < 8; i++) {
+    autn[8 + i] = mac[i];
+  }
+
+  // 与比较MAC的作用相同
+  // Compare AUTNs
+  for (i = 0; i < 16; i++) {
+    if (autn[i] != autn_enb[i]) {
+      result = AUTH_FAILED;
+    }
+  }
+
+  // 计算ak异或SNQ
+  for (i = 0; i < 6; i++) {
+    ak_xor_sqn[i] = sqn[i] ^ ak[i];
+  }
+
+  logger.debug(ck, CK_LEN, "CK:");
+  logger.debug(ik, IK_LEN, "IK:");
+  logger.debug(ak, AK_LEN, "AK:");
+  logger.debug(sqn, 6, "sqn:");
+  logger.debug(amf, 2, "amf:");
+  logger.debug(mac, 8, "mac:");
+
+  return result;
+}
+
+// machi: 认证算法-auth_algo_xor
 // 3GPP TS 34.108 version 10.0.0 Section 8
 auth_result_t usim::gen_auth_res_xor(uint8_t* rand, uint8_t* autn_enb, uint8_t* res, int* res_len, uint8_t* ak_xor_sqn)
 {

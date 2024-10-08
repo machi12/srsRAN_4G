@@ -1072,6 +1072,17 @@ public:
 
 }; // nb_n1_mode_drx_parameters_t
 
+// machi：设置一个表示随机数N的对象
+// IE: Authentication parameter N
+class authentication_parameter_n_t
+{
+public:
+  std::array <uint_8, 16> n;
+
+  SRSASN_CODE pack(asn1::bit_ref& bref);
+  SRSASN_CODE unpack(asn1::cbit_ref& bref);
+}; // authentication_parameter_n_t
+
 // IE: 5GS registration result
 // Reference: 9.11.3.6
 class registration_result_5gs_t
@@ -1703,6 +1714,17 @@ public:
   SRSASN_CODE unpack(asn1::cbit_ref& bref);
 
 }; // authentication_parameter_autn_t
+
+// machi：增加表示SNMAC的类
+// IE: Authentication parameter SNMAC
+class authentication_parameter_snmac_t
+{
+  public:
+    std::array<uint8_t, 8> snmac;
+
+    SRSASN_CODE pack(asn1::bit_ref& bref);
+    SRSASN_CODE unpack(asn1::cbit_ref& bref);
+}; // authentication_parameter_snmac_t
 
 // IE: Authentication response parameter
 // Reference: 9.11.3.17

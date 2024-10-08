@@ -1,0 +1,46 @@
+{
+	"backtraceGraph" : 
+	{
+		"commands" : 
+		[
+			"install"
+		],
+		"files" : 
+		[
+			"lib/src/phy/CMakeLists.txt"
+		],
+		"nodes" : 
+		[
+			{
+				"file" : 0
+			},
+			{
+				"command" : 0,
+				"file" : 0,
+				"line" : 62,
+				"parent" : 0
+			}
+		]
+	},
+	"installers" : 
+	[
+		{
+			"backtrace" : 1,
+			"component" : "Unspecified",
+			"destination" : "lib",
+			"isOptional" : true,
+			"paths" : 
+			[
+				"lib/src/phy/libsrsran_phy.a"
+			],
+			"targetId" : "srsran_phy::@ff75a69bd6f9fa6d3921",
+			"targetIndex" : 229,
+			"type" : "target"
+		}
+	],
+	"paths" : 
+	{
+		"build" : "lib/src/phy",
+		"source" : "lib/src/phy"
+	}
+}

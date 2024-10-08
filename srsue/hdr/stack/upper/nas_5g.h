@@ -160,6 +160,7 @@ private:
   int  apply_security_config(srsran::unique_byte_buffer_t& pdu, uint8_t sec_hdr_type);
   bool check_replayed_ue_security_capabilities(srsran::nas_5g::ue_security_capability_t& caps);
   void set_nssai(srsran::nas_5g::s_nssai_t& s_nssai);
+  void set_n(srsran::nas_5g::s_nssai_t& param);
 
   // message handler
   int handle_registration_accept(srsran::nas_5g::registration_accept_t& registration_accept);

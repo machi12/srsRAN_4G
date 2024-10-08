@@ -38,6 +38,8 @@ namespace srsue {
 #define IK_LEN 16
 #define CK_LEN 16
 #define AK_LEN 6
+// machi：5G-RNAKA中AK的长度为64bit
+#define AK_LEN_NEW 8
 #define SQN_LEN 6
 
 #define KEY_LEN 32
@@ -149,6 +151,8 @@ protected:
   uint8_t k_enb_star[KEY_LEN]    = {};
   uint8_t k_enb_initial[KEY_LEN] = {};
   uint8_t auts[AKA_AUTS_LEN]     = {};
+  // machi：5G-RNAKA中的AK
+  uint8_t ak_new[AK_LEN_NEW]     = {};
 
   srsran::as_key_t k_gnb_initial = {};
 

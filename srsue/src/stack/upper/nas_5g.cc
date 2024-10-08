@@ -34,6 +34,11 @@
 #include <fstream>
 #include <iomanip>
 #include <unistd.h>
+// machi：引入所需的库
+#include <array>
+#include <random>
+#include <cstdint>
+#include <iostream>
 
 #define MAC_5G_OFFSET 2
 #define SEQ_5G_OFFSET 6
@@ -149,6 +154,7 @@ void nas_5g::run_tti()
   }
 }
 
+// machi：UE在收到SN发送的消息后对消息内容进行处理的函数
 int nas_5g::write_pdu(srsran::unique_byte_buffer_t pdu)
 {
   logger.info(pdu->msg, pdu->N_bytes, "DL PDU (length %d)", pdu->N_bytes);
@@ -250,6 +256,7 @@ int nas_5g::write_pdu(srsran::unique_byte_buffer_t pdu)
  * Senders
  ******************************************************************************/
 
+// machi：发送注册请求消息的函数
 int nas_5g::send_registration_request()
 {
   unique_byte_buffer_t pdu = srsran::make_byte_buffer();
@@ -284,6 +291,16 @@ int nas_5g::send_registration_request()
     set_nssai(nssai);
     reg_req.requested_nssai.s_nssai_list.push_back(nssai);
   }
+
+  // machi：生成随机数N并将其填充到认证请求中
+  reg_req.authentication_parameter_n_present = true;
+  authentication_parameter_n_t param_n;
+  set_n(param_n);
+  memcpy(reg_req.authentication_parameter_n.n.data(), param_n, 16);
+  logger.info(reg_req.authentication_parameter_n.n.data(),
+              reg_req.authentication_parameter_n.n.size(),
+              "Registration request N");
+
   if (initial_registration_request_stored.pack(pdu) != SRSASN_SUCCESS) {
     logger.error("Failed to pack registration request");
     return SRSRAN_ERROR;
@@ -544,6 +561,20 @@ void nas_5g::set_nssai(srsran::nas_5g::s_nssai_t& s_nssai)
   }
   s_nssai.sst = cfg.nssai_sst;
   s_nssai.sd  = cfg.nssai_sd;
+}
+
+// 设置随机数N
+void nas_5g::set_n(srsran::nas_5g::authentication_parameter_n& param)
+{
+  // 使用随机数生成器
+  std::random_device rd;
+  std::mt19937_64 gen(rd()); // 64位的Mersenne Twister引擎
+  std::uniform_int_distribution<uint8_t> dis(0, 255); // 生成0到255之间的随机数
+
+  // 填充随机数到 param.n 数组中
+  for (auto& byte : param.n) {
+    byte = dis(gen);
+  }
 }
 
 int nas_5g::send_pdu_session_establishment_request(uint32_t                 transaction_identity,
@@ -856,6 +887,7 @@ int nas_5g::handle_registration_reject(registration_reject_t& registration_rejec
   return SRSRAN_SUCCESS;
 }
 
+// machi：处理认证请求的函数
 int nas_5g::handle_authentication_request(authentication_request_t& authentication_request)
 {
   logger.info("Handling Authentication Request");
@@ -885,10 +917,26 @@ int nas_5g::handle_authentication_request(authentication_request_t& authenticati
               authentication_request.authentication_parameter_rand.rand.size(),
               "Authentication request AUTN");
 
+  // 打印解析后的SNMAC
+  logger.info(authentication_request.authentication_parameter_snmac.snmac.data(),
+              authentication_request.authentication_parameter_snmac.snmac.size(),
+              "Authentication request SNMAC");
+
   logger.info("Serving network name %s", plmn_id.to_serving_network_name_string().c_str());
+//  auth_result_t auth_result =
+//      usim->generate_authentication_response_5g(authentication_request.authentication_parameter_rand.rand.data(),
+//                                                authentication_request.authentication_parameter_autn.autn.data(),
+//                                                plmn_id.to_serving_network_name_string().c_str(),
+//                                                authentication_request.abba.abba_contents.data(),
+//                                                authentication_request.abba.abba_contents.size(),
+//                                                res_star,
+//                                                ctxt_5g.k_amf);
+
+  // 使用5G-RNAKA协议的过程进行处理
   auth_result_t auth_result =
-      usim->generate_authentication_response_5g(authentication_request.authentication_parameter_rand.rand.data(),
+      usim->generate_authentication_response_5g_new(authentication_request.authentication_parameter_rand.rand.data(),
                                                 authentication_request.authentication_parameter_autn.autn.data(),
+                                                authentication_request.authentication_parameter_snmac.snmac.data(),
                                                 plmn_id.to_serving_network_name_string().c_str(),
                                                 authentication_request.abba.abba_contents.data(),
                                                 authentication_request.abba.abba_contents.size(),
@@ -901,7 +949,6 @@ int nas_5g::handle_authentication_request(authentication_request_t& authenticati
     logger.info("Network authentication successful");
     send_authentication_response(res_star);
     logger.info(res_star, 16, "Generated res_star (%d):", 16);
-
   } else if (auth_result == AUTH_FAILED) {
     logger.error("Network authentication failure");
     send_authentication_failure(cause_5gmm_t::cause_5gmm_type::mac_failure, res_star);
