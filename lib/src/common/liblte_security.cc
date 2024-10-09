@@ -1136,7 +1136,7 @@ LIBLTE_ERROR_ENUM liblte_security_milenage_f1_new(uint8* k, uint8* op_c, uint8* 
   uint8             out1[16];
   uint8             input[16];
 
-  if (k != NULL && op_c != NULL && rand != NULL && sqn != NULL && amf != NULL && mac_a != NULL) {
+  if (k != NULL && op_c != NULL && rand != NULL && mac_a != NULL) {
     // Initialize the round keys
     aes_setkey_enc(&ctx, k, 128);
 

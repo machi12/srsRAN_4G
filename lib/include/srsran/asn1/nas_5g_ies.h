@@ -1077,7 +1077,7 @@ public:
 class authentication_parameter_n_t
 {
 public:
-  std::array <uint_8, 16> n;
+  std::array<uint8_t, 16> n;
 
   SRSASN_CODE pack(asn1::bit_ref& bref);
   SRSASN_CODE unpack(asn1::cbit_ref& bref);

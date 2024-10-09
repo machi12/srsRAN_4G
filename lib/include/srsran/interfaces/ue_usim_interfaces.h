@@ -23,6 +23,7 @@
 #define SRSRAN_UE_USIM_INTERFACES_H
 
 #include "rrc_interface_types.h"
+#include "srsran/common/security.h"
 #include <string>
 
 namespace srsue {
@@ -59,6 +60,16 @@ public:
                                                             uint32_t    abba_len,
                                                             uint8_t*    res_star,
                                                             uint8_t*    k_amf) = 0;
+
+  // machi：增加对新函数的声明
+  virtual auth_result_t generate_authentication_response_5g_new(uint8_t*    rand,
+                                                                uint8_t*    autn_enb,
+                                                                uint8_t*    snmac,
+                                                                const char* serving_network_name,
+                                                                uint8_t*    abba,
+                                                                uint32_t    abba_len,
+                                                                uint8_t*    res_star,
+                                                                uint8_t*    k_amf) = 0;
 
   virtual void generate_nas_keys(uint8_t*                            k_asme,
                                  uint8_t*                            k_nas_enc,

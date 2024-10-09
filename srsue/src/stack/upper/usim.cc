@@ -190,7 +190,9 @@ auth_result_t usim::generate_authentication_response_5g_new(uint8_t*    rand,
 
   // 根据变量auth_algo来选择认证算法
   if (auth_algo_xor == auth_algo) {
-    auth_result = gen_auth_res_xor(rand, autn_enb, res, &res_len, ak_xor_sqn);
+    // 先默认不实用gen_auth_res_xor方法
+    auth_result = AUTH_FAILED;
+//    auth_result = gen_auth_res_xor(rand, autn_enb, res, &res_len, ak_xor_sqn);
   } else {
     // 一般来说使用下面这个
     auth_result = gen_auth_res_milenage_new(rand, autn_enb, snmac, res, &res_len);
@@ -242,7 +244,7 @@ auth_result_t usim::gen_auth_res_milenage(uint8_t* rand, uint8_t* autn_enb, uint
     sqn[i] = autn_enb[i] ^ ak[i];
   }
   // Extract AMF from autn
-  for (int i = 0; i < 2; i++) {
+  for (i = 0; i < 2; i++) {
     amf[i] = autn_enb[6 + i];
   }
 
@@ -302,35 +304,37 @@ auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, 
   security_milenage_f1_new(k, opc, rand, mac);
 
   // 这里的逻辑和协议本身有点不对，但是也是可以的。按照协议来说直接比较两个MAC就行，他这里是根据上面计算得到的重新构建了一个AUTN，然后比较的是两个AUTN的值
+  // AUTN变为HNMAC xor AK
   // Construct AUTN
-  for (i = 0; i < 6; i++) {
-    autn[i] = sqn[i] ^ ak[i];
-  }
-  for (i = 0; i < 2; i++) {
-    autn[6 + i] = amf[i];
-  }
   for (i = 0; i < 8; i++) {
-    autn[8 + i] = mac[i];
+    autn[i] = mac[i] ^ ak_new[i];
   }
+//  for (i = 0; i < 2; i++) {
+//    autn[6 + i] = amf[i];
+//  }
+//  for (i = 0; i < 8; i++) {
+//    autn[8 + i] = mac[i];
+//  }
 
   // 与比较MAC的作用相同
+  // AUTN变为64bit
   // Compare AUTNs
-  for (i = 0; i < 16; i++) {
+  for (i = 0; i < 8; i++) {
     if (autn[i] != autn_enb[i]) {
       result = AUTH_FAILED;
     }
   }
 
   // 计算ak异或SNQ
-  for (i = 0; i < 6; i++) {
-    ak_xor_sqn[i] = sqn[i] ^ ak[i];
-  }
+//  for (i = 0; i < 6; i++) {
+//    ak_xor_sqn[i] = sqn[i] ^ ak[i];
+//  }
 
   logger.debug(ck, CK_LEN, "CK:");
   logger.debug(ik, IK_LEN, "IK:");
-  logger.debug(ak, AK_LEN, "AK:");
-  logger.debug(sqn, 6, "sqn:");
-  logger.debug(amf, 2, "amf:");
+  logger.debug(ak_new, AK_LEN_NEW, "AK:");
+//  logger.debug(sqn, 6, "sqn:");
+//  logger.debug(amf, 2, "amf:");
   logger.debug(mac, 8, "mac:");
 
   return result;

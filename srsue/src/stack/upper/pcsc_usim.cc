@@ -225,6 +225,19 @@ auth_result_t pcsc_usim::generate_authentication_response_5g(uint8_t*    rand,
   return ret;
 }
 
+// machi：由于继承关系，因此需要有该函数的空实现
+auth_result_t pcsc_usim::generate_authentication_response_5g_new(uint8_t*    rand,
+                                                                uint8_t*    autn_enb,
+                                                                uint8_t*    snmac,
+                                                                const char* serving_network_name,
+                                                                uint8_t*    abba,
+                                                                uint32_t    abba_len,
+                                                                uint8_t*    res_star,
+                                                                uint8_t*    k_amf)
+{
+  return AUTH_FAILED;
+}
+
 std::string pcsc_usim::get_mnc_str(const uint8_t* imsi_vec, std::string mcc_str)
 {
   uint32_t           mcc_len = 3;

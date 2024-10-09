@@ -296,7 +296,7 @@ int nas_5g::send_registration_request()
   reg_req.authentication_parameter_n_present = true;
   authentication_parameter_n_t param_n;
   set_n(param_n);
-  memcpy(reg_req.authentication_parameter_n.n.data(), param_n, 16);
+  memcpy(reg_req.authentication_parameter_n.n.data(), &param_n, 16);
   logger.info(reg_req.authentication_parameter_n.n.data(),
               reg_req.authentication_parameter_n.n.size(),
               "Registration request N");
@@ -563,8 +563,8 @@ void nas_5g::set_nssai(srsran::nas_5g::s_nssai_t& s_nssai)
   s_nssai.sd  = cfg.nssai_sd;
 }
 
-// 设置随机数N
-void nas_5g::set_n(srsran::nas_5g::authentication_parameter_n& param)
+// machi：设置随机数N
+void nas_5g::set_n(srsran::nas_5g::authentication_parameter_n_t& param)
 {
   // 使用随机数生成器
   std::random_device rd;
@@ -935,13 +935,13 @@ int nas_5g::handle_authentication_request(authentication_request_t& authenticati
   // 使用5G-RNAKA协议的过程进行处理
   auth_result_t auth_result =
       usim->generate_authentication_response_5g_new(authentication_request.authentication_parameter_rand.rand.data(),
-                                                authentication_request.authentication_parameter_autn.autn.data(),
-                                                authentication_request.authentication_parameter_snmac.snmac.data(),
-                                                plmn_id.to_serving_network_name_string().c_str(),
-                                                authentication_request.abba.abba_contents.data(),
-                                                authentication_request.abba.abba_contents.size(),
-                                                res_star,
-                                                ctxt_5g.k_amf);
+                                                    authentication_request.authentication_parameter_autn.autn.data(),
+                                                    authentication_request.authentication_parameter_snmac.snmac.data(),
+                                                    plmn_id.to_serving_network_name_string().c_str(),
+                                                    authentication_request.abba.abba_contents.data(),
+                                                    authentication_request.abba.abba_contents.size(),
+                                                    res_star,
+                                                    ctxt_5g.k_amf);
 
   logger.info(ctxt_5g.k_amf, 32, "Generated k_amf:");
 

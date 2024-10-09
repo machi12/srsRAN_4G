@@ -61,6 +61,18 @@ public:
                                                     uint32_t    abba_len,
                                                     uint8_t*    res_star,
                                                     uint8_t*    k_amf);
+
+  // machi：声明新的函数
+  auth_result_t generate_authentication_response_5g_new(uint8_t*    rand,
+                                                        uint8_t*    autn_enb,
+                                                        uint8_t*    snmac,
+                                                        const char* serving_network_name,
+                                                        uint8_t*    abba,
+                                                        uint32_t    abba_len,
+                                                        uint8_t*    res_star,
+                                                        uint8_t*    k_amf);
+
+
   // Helpers
   virtual std::string get_mnc_str(const uint8_t* imsi_vec, std::string mcc_str) final;
 

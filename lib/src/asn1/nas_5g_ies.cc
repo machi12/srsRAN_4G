@@ -3497,14 +3497,15 @@ SRSASN_CODE authentication_parameter_autn_t::pack(asn1::bit_ref& bref)
   return SRSASN_SUCCESS;
 }
 
+// machi：由于AUTN的长度从128bit变为64bit，因此需要对解包函数进行修改
 // IE: Authentication parameter AUTN
 // Reference: 9.11.3.15
 SRSASN_CODE authentication_parameter_autn_t::unpack(asn1::cbit_ref& bref)
 {
   uint8_t length = 0;
   HANDLE_CODE(bref.unpack(length, 8));
-  if (length != 16) {
-    asn1::log_error("Decoding Failed (Authentication parameter AUTN): Length (%d) does not equal expected length 16",
+  if (length != 8) {
+    asn1::log_error("Decoding Failed (Authentication parameter AUTN): Length (%d) does not equal expected length 8",
                     length);
     return asn1::SRSASN_ERROR_DECODE_FAIL;
   }

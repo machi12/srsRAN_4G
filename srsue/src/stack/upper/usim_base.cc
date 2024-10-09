@@ -35,6 +35,7 @@ std::unique_ptr<usim_base> usim_base::get_instance(usim_args_t* args, srslog::ba
   if (args->mode == "pcsc") {
     return std::unique_ptr<usim_base>(new pcsc_usim(logger));
   }
+
 #endif
 
   // default to soft USIM
