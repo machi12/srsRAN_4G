@@ -18,15 +18,11 @@
 # and at http://www.gnu.org/licenses/.
 #
 
-# machi
-set(CMAKE_PREFIX_PATH "/opt/homebrew/Cellar/libconfig/1.7.3")
-include_directories(/opt/homebrew/Cellar/libusrsctp/0.9.5.0_1/include)
-
 find_package(LibConfig REQUIRED)
 find_package(SCTP REQUIRED)
 
 if(BUILD_STATIC)
-  set(LIBCONFIGPP_LIBRARIES "${LIBCONFIGPP_STATIC_LIBRARY_PATH}")
+    set(LIBCONFIGPP_LIBRARIES "${LIBCONFIGPP_STATIC_LIBRARY_PATH}")
 endif(BUILD_STATIC)
 
 if(NOT Boost_FOUND)
@@ -37,14 +33,14 @@ endif()
 # Setup the include and linker paths
 ########################################################################
 include_directories(
-    ${Boost_INCLUDE_DIRS}
-    ${SEC_INCLUDE_DIRS}
-    ${PROJECT_SOURCE_DIR}
+        ${Boost_INCLUDE_DIRS}
+        ${SEC_INCLUDE_DIRS}
+        ${PROJECT_SOURCE_DIR}
 )
 
 link_directories(
-    ${Boost_LIBRARY_DIRS}
-    ${SEC_LIBRARY_DIRS}
+        ${Boost_LIBRARY_DIRS}
+        ${SEC_LIBRARY_DIRS}
 )
 
 ########################################################################

@@ -31,7 +31,6 @@
 
 #MESSAGE("Searching for libconfig library")
 
-# machi
 FIND_PATH(LIBCONFIG_INCLUDE_DIR libconfig.h
         /usr/local/include
         /usr/include
