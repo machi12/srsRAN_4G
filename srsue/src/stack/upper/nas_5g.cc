@@ -890,6 +890,8 @@ int nas_5g::handle_registration_reject(registration_reject_t& registration_rejec
 // machi：处理认证请求的函数
 int nas_5g::handle_authentication_request(authentication_request_t& authentication_request)
 {
+  srsran::console("Handling Authentication Request\n");
+
   logger.info("Handling Authentication Request");
   ctxt_base.rx_count++;
   // Generate authentication response using RAND, AUTN & KSI-ASME
@@ -921,6 +923,15 @@ int nas_5g::handle_authentication_request(authentication_request_t& authenticati
   logger.info(authentication_request.authentication_parameter_snmac.snmac.data(),
               authentication_request.authentication_parameter_snmac.snmac.size(),
               "Authentication request SNMAC");
+
+  // 在控制台打印snmac的值
+  std::string snmac_str;
+  for (size_t i = 0; i < authentication_request.authentication_parameter_snmac.snmac.size(); ++i) {
+    char byte_str[4];  // 2 digits for hex + 1 space or null terminator
+    std::snprintf(byte_str, sizeof(byte_str), "%02X ", authentication_request.authentication_parameter_snmac.snmac[i]);
+    snmac_str += byte_str;  // 将每个字节追加到结果字符串中
+  }
+  srsran::console("SNMAC: %s\n", snmac_str.c_str());
 
   logger.info("Serving network name %s", plmn_id.to_serving_network_name_string().c_str());
 //  auth_result_t auth_result =

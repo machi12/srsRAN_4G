@@ -95,13 +95,7 @@
 			{
 				"command" : 2,
 				"file" : 2,
-				"line" : 23,
-				"parent" : 12
-			},
-			{
-				"command" : 2,
-				"file" : 2,
-				"line" : 39,
+				"line" : 35,
 				"parent" : 12
 			}
 		]
@@ -158,14 +152,10 @@
 				},
 				{
 					"backtrace" : 13,
-					"path" : "/opt/homebrew/Cellar/libusrsctp/0.9.5.0_1/include"
-				},
-				{
-					"backtrace" : 14,
 					"path" : "/opt/homebrew/Cellar/mbedtls/3.6.1/include"
 				},
 				{
-					"backtrace" : 14,
+					"backtrace" : 13,
 					"path" : "/Users/machi/Desktop/Artifact/srsRAN_4G"
 				}
 			],
