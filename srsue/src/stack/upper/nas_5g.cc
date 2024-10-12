@@ -259,6 +259,9 @@ int nas_5g::write_pdu(srsran::unique_byte_buffer_t pdu)
 // machi：发送注册请求消息的函数
 int nas_5g::send_registration_request()
 {
+  // 打印
+  srsran::console("Send Registration Request\n");
+
   unique_byte_buffer_t pdu = srsran::make_byte_buffer();
   if (!pdu) {
     logger.error("Couldn't allocate PDU in %s().", __FUNCTION__);
