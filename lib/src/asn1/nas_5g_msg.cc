@@ -1502,7 +1502,6 @@ SRSASN_CODE authentication_request_t::unpack(asn1::cbit_ref& bref)
   HANDLE_CODE(abba.unpack(bref));
 
   // Optional fields
-
   while (bref.distance_bytes_end() > 0) {
     // some iei are only 1/2 byte long which are > 8
     // otherwise a complete byte

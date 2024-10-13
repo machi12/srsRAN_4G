@@ -215,6 +215,7 @@ int nas_5g::write_pdu(srsran::unique_byte_buffer_t pdu)
       handle_authentication_reject(nas_msg.authentication_reject());
       break;
     case msg_opts::options::authentication_request:
+      // 调用处理认证请求
       handle_authentication_request(nas_msg.authentication_request());
       break;
     case msg_opts::options::identity_request:

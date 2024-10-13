@@ -23,6 +23,7 @@
 #include "srsran/asn1/asn1_utils.h"
 #include "srsran/common/buffer_pool.h"
 #include "srsran/common/common.h"
+#include "srsran/common/standard_streams.h"
 #include "srsran/config.h"
 
 #include <array>
@@ -3504,6 +3505,7 @@ SRSASN_CODE authentication_parameter_autn_t::unpack(asn1::cbit_ref& bref)
 {
   uint8_t length = 0;
   HANDLE_CODE(bref.unpack(length, 8));
+  srsran::console("SNMAC length: %u\n", static_cast<unsigned int>(length));
   if (length != 8) {
     asn1::log_error("Decoding Failed (Authentication parameter AUTN): Length (%d) does not equal expected length 8",
                     length);
