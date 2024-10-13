@@ -1514,6 +1514,9 @@ SRSASN_CODE authentication_request_t::unpack(asn1::cbit_ref& bref)
       iei = iei << 4 | iei_tmp;
     }
 
+    // 增加打印
+    asn1::log_info("IE %x", iei);
+
     // 根据IEI对剩余可选字段进行解包
     switch (iei) {
       case ie_iei_authentication_parameter_rand:
