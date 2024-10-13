@@ -198,6 +198,7 @@ int nas_5g::write_pdu(srsran::unique_byte_buffer_t pdu)
 
   logger.info(pdu->msg, pdu->N_bytes, "Decrypted DL PDU (length %d)", pdu->N_bytes);
 
+  // 总的解析函数
   // Parse the message header
   if (nas_msg.unpack(pdu) != SRSRAN_SUCCESS) {
     logger.error("Unable to unpack complete NAS pdu");
@@ -216,6 +217,7 @@ int nas_5g::write_pdu(srsran::unique_byte_buffer_t pdu)
       break;
     case msg_opts::options::authentication_request:
       // 调用处理认证请求
+
       handle_authentication_request(nas_msg.authentication_request());
       break;
     case msg_opts::options::identity_request:
@@ -920,7 +922,7 @@ int nas_5g::handle_authentication_request(authentication_request_t& authenticati
               "Authentication request RAND");
 
   logger.info(authentication_request.authentication_parameter_autn.autn.data(),
-              authentication_request.authentication_parameter_rand.rand.size(),
+              authentication_request.authentication_parameter_autn.autn.size(),
               "Authentication request AUTN");
 
   // 打印解析后的SNMAC

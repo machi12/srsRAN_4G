@@ -1719,11 +1719,11 @@ public:
 // IE: Authentication parameter SNMAC
 class authentication_parameter_snmac_t
 {
-  public:
-    std::array<uint8_t, 8> snmac;
+public:
+  std::array<uint8_t, 8> snmac;
 
-    SRSASN_CODE pack(asn1::bit_ref& bref);
-    SRSASN_CODE unpack(asn1::cbit_ref& bref);
+  SRSASN_CODE pack(asn1::bit_ref& bref);
+  SRSASN_CODE unpack(asn1::cbit_ref& bref);
 }; // authentication_parameter_snmac_t
 
 // IE: Authentication response parameter

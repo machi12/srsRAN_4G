@@ -1507,7 +1507,8 @@ SRSASN_CODE authentication_request_t::unpack(asn1::cbit_ref& bref)
     // otherwise a complete byte
     uint8_t iei;
     HANDLE_CODE(bref.unpack(iei, 4));
-    if (iei < 8) {
+    // 之前引起解析错误的地方在于下民啊的ie1<8这个限定条件，它会导致IEI=0x99时被解析成两个无效的IEI（都为9）
+    if (iei < 10) {
       uint8_t iei_tmp;
       HANDLE_CODE(bref.unpack(iei_tmp, 4));
       iei = iei << 4 | iei_tmp;
