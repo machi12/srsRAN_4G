@@ -347,13 +347,13 @@ auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, 
   // 计算SNMAC
   uint8_t output[32];
   size_t serving_network_name_len = strlen(serving_network_name);
-  size_t total_len = 8 + 16 + serving_network_name_len;
+  size_t total_len = 16 + 8 + serving_network_name_len;
   uint8_t* input = new uint8_t[total_len];
   size_t offset = 0;
-  memcpy(input + offset, mac, 8);
-  offset += 8;
   memcpy(input + offset, n, 16);
   offset += 16;
+  memcpy(input + offset, mac, 8);
+  offset += 8;
   memcpy(input + offset, serving_network_name, serving_network_name_len);
   sha256(k, 16, input, total_len, output, 0);
   for (i = 0; i < 8; i++) {
