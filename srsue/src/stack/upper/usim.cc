@@ -357,7 +357,7 @@ auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, 
   memcpy(input + offset, serving_network_name, serving_network_name_len);
   sha256(k, 16, input, total_len, output, 0);
   for (i = 0; i < 8; i++) {
-    xsnmac[i] = output[i];
+    xsnmac[i] = output[i + 24];
   }
 
   // 比较SNMAC
