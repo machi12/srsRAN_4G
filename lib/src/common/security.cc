@@ -908,12 +908,17 @@ uint8_t security_milenage_f1_star(uint8_t* k, uint8_t* op, uint8_t* rand, uint8_
   return liblte_security_milenage_f1_star(k, op, rand, sqn, amf, mac_s);
 }
 
+uint8_t security_milenage_f1_star_new(uint8_t* k, uint8_t* op, uint8_t* rand, uint8_t* ak)
+{
+  return liblte_security_milenage_f1_star_new(k, op, rand, ak);
+}
+
 uint8_t security_milenage_f2345(uint8_t* k, uint8_t* op, uint8_t* rand, uint8_t* res, uint8_t* ck, uint8_t* ik, uint8_t* ak)
 {
   return liblte_security_milenage_f2345(k, op, rand, res, ck, ik, ak);
 }
 
-// machi：新的f2345函数
+// machi：新的f2345函数（新的逻辑）
 uint8_t security_milenage_f2345_new(uint8_t* k, uint8_t* op, uint8_t* rand, uint8_t* res, uint8_t* ck, uint8_t* ik, uint8_t* ak)
 {
   return liblte_security_milenage_f2345_new(k, op, rand, res, ck, ik, ak);

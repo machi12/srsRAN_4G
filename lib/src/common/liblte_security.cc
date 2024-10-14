@@ -1195,8 +1195,7 @@ LIBLTE_ERROR_ENUM liblte_security_milenage_f1_new(uint8* k, uint8* op_c, uint8* 
 
     Document Reference: 35.206 v10.0.0 Annex 3
 *********************************************************************/
-LIBLTE_ERROR_ENUM
-liblte_security_milenage_f1_star(uint8* k, uint8* op_c, uint8* rand, uint8* sqn, uint8* amf, uint8* mac_s)
+LIBLTE_ERROR_ENUM liblte_security_milenage_f1_star(uint8* k, uint8* op_c, uint8* rand, uint8* sqn, uint8* amf, uint8* mac_s)
 {
   LIBLTE_ERROR_ENUM err = LIBLTE_ERROR_INVALID_INPUTS;
   aes_context       ctx;
@@ -1240,6 +1239,67 @@ liblte_security_milenage_f1_star(uint8* k, uint8* op_c, uint8* rand, uint8* sqn,
     // Return MAC-S
     for (i = 0; i < 8; i++) {
       mac_s[i] = out1[i + 8];
+    }
+
+    err = LIBLTE_SUCCESS;
+  }
+
+  return (err);
+}
+
+// machi：新的f1star函数
+LIBLTE_ERROR_ENUM liblte_security_milenage_f1_star_new(uint8* k, uint8* op_c, uint8* rand, uint8* ak)
+{
+  LIBLTE_ERROR_ENUM err = LIBLTE_ERROR_INVALID_INPUTS;
+  uint32            i;
+  aes_context       ctx;
+  uint8             temp[16];
+  uint8             in1[16];
+  uint8             out1[16];
+  uint8             input[16];
+
+  if (k != NULL && op_c != NULL && rand != NULL && ak != NULL) {
+    // Initialize the round keys
+    aes_setkey_enc(&ctx, k, 128);
+
+    // Compute temp
+    for (i = 0; i < 16; i++) {
+      input[i] = rand[i] ^ op_c[i];
+    }
+    aes_crypt_ecb(&ctx, AES_ENCRYPT, input, temp);
+
+    // 原有操作是为了获得SQN｜｜AMF｜｜SQN｜｜AMF
+    // Construct in1
+    //    for (i = 0; i < 6; i++) {
+    //      in1[i]     = sqn[i];
+    //      in1[i + 8] = sqn[i];
+    //    }
+    //    for (i = 0; i < 2; i++) {
+    //      in1[i + 6]  = amf[i];
+    //      in1[i + 14] = amf[i];
+    //    }
+
+    // 现在让in1直接等于rand（因为不再需要SQN）
+    for (i = 0; i < 16; i++){
+      in1[i] = rand[i];
+    }
+
+    // Compute out1
+    for (i = 0; i < 16; i++) {
+      input[(i + 8) % 16] = in1[i] ^ op_c[i];
+    }
+    for (i = 0; i < 16; i++) {
+      input[i] ^= temp[i];
+    }
+    aes_crypt_ecb(&ctx, AES_ENCRYPT, input, out1);
+    for (i = 0; i < 16; i++) {
+      out1[i] ^= op_c[i];
+    }
+
+    // 获取AK
+    // Return AK
+    for (i = 0; i < 8; i++) {
+      ak[i] = out1[i + 8];
     }
 
     err = LIBLTE_SUCCESS;
@@ -1366,9 +1426,9 @@ LIBLTE_ERROR_ENUM liblte_security_milenage_f2345_new(uint8* k, uint8* op_c, uint
 
     // AK变为64bit
     // Return AK
-    for (i = 0; i < 8; i++) {
-      ak[i] = out[i];
-    }
+//    for (i = 0; i < 8; i++) {
+//      ak[i] = out[i];
+//    }
 
     // Compute out for CK
     for (i = 0; i < 16; i++) {

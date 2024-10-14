@@ -79,8 +79,7 @@ protected:
   int parse_security_algorithm_list(std::string algorithm_string, bool* algorithm_caps);
 
   // Security
-  void
-  integrity_generate(uint8_t* key_128, uint32_t count, uint8_t direction, uint8_t* msg, uint32_t msg_len, uint8_t* mac);
+  void integrity_generate(uint8_t* key_128, uint32_t count, uint8_t direction, uint8_t* msg, uint32_t msg_len, uint8_t* mac);
   bool integrity_check(srsran::byte_buffer_t* pdu);
   void cipher_encrypt(srsran::byte_buffer_t* pdu);
   void cipher_decrypt(srsran::byte_buffer_t* pdu);

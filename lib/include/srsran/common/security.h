@@ -321,6 +321,9 @@ uint8_t security_milenage_f1_new(uint8_t* k, uint8_t* op, uint8_t* rand, uint8_t
 
 uint8_t security_milenage_f1_star(uint8_t* k, uint8_t* op, uint8_t* rand, uint8_t* sqn, uint8_t* amf, uint8_t* mac_s);
 
+// machi：声明新的f1star函数（为了满足ak计算的旧的逻辑）
+uint8_t security_milenage_f1_star_new(uint8_t* k, uint8_t* op, uint8_t* rand, uint8_t* ak);
+
 uint8_t security_milenage_f2345(uint8_t* k, uint8_t* op, uint8_t* rand, uint8_t* res, uint8_t* ck, uint8_t* ik, uint8_t* ak);
 
 // 声明新的f2345函数

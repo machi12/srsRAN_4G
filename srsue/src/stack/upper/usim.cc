@@ -22,6 +22,8 @@
 #include "srsue/hdr/stack/upper/usim.h"
 #include "srsran/common/bcd_helpers.h"
 #include "srsran/common/standard_streams.h"
+// machi：引入sha256算法所在头文件
+#include "srsran/common/ssl.h"
 #include <sstream>
 
 using namespace srsran;
@@ -181,6 +183,9 @@ auth_result_t usim::generate_authentication_response_5g_new(uint8_t*    rand,
                                                             uint8_t*    res_star,
                                                             uint8_t*    k_amf)
 {
+  // 打印
+  logger.info("function generate_authentication_response_5g_new");
+
   auth_result_t auth_result;
   // 定义认证相关变量
   uint8_t       res[16];
@@ -195,7 +200,7 @@ auth_result_t usim::generate_authentication_response_5g_new(uint8_t*    rand,
 //    auth_result = gen_auth_res_xor(rand, autn_enb, res, &res_len, ak_xor_sqn);
   } else {
     // 一般来说使用下面这个
-    auth_result = gen_auth_res_milenage_new(rand, autn_enb, snmac, res, &res_len);
+    auth_result = gen_auth_res_milenage_new(rand, autn_enb, snmac, res, &res_len, serving_network_name);
   }
 
   // 如果认证成功
@@ -288,8 +293,11 @@ auth_result_t usim::gen_auth_res_milenage(uint8_t* rand, uint8_t* autn_enb, uint
 }
 
 // machi：5G-RNAKA的认证算法-auth_algo_milenage（好像只验证了MAC对不对，并没有验证SQN对不对）
-auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, uint8_t* snmac, uint8_t* res, int* res_len)
+auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, uint8_t* snmac, uint8_t* res, int* res_len, const char* serving_network_name)
 {
+  // 打印
+  logger.info("function gen_auth_res_milenage_new");
+
   auth_result_t result = AUTH_OK;
   uint32_t      i;
 
@@ -303,11 +311,14 @@ auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, 
   // Generate MAC
   security_milenage_f1_new(k, opc, rand, mac);
 
+  // 调用f1star函数来计算AK
+  security_milenage_f1_star_new(k, opc, rand, ak_new);
+
   // 这里的逻辑和协议本身有点不对，但是也是可以的。按照协议来说直接比较两个MAC就行，他这里是根据上面计算得到的重新构建了一个AUTN，然后比较的是两个AUTN的值
   // AUTN变为HNMAC xor AK
   // Construct AUTN
   for (i = 0; i < 8; i++) {
-    autn[i] = mac[i] ^ ak_new[i];
+    autn_new[i] = mac[i] ^ ak_new[i];
   }
 //  for (i = 0; i < 2; i++) {
 //    autn[6 + i] = amf[i];
@@ -320,7 +331,7 @@ auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, 
   // AUTN变为64bit
   // Compare AUTNs
   for (i = 0; i < 8; i++) {
-    if (autn[i] != autn_enb[i]) {
+    if (autn_new[i] != autn_enb[i]) {
       result = AUTH_FAILED;
     }
   }
@@ -330,11 +341,38 @@ auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, 
 //    ak_xor_sqn[i] = sqn[i] ^ ak[i];
 //  }
 
+  // 计算SNMAC
+  uint8_t output[32];
+  size_t serving_network_name_len = strlen(serving_network_name);
+  size_t total_len = 8 + 16 + serving_network_name_len;
+  uint8_t* input = new uint8_t[total_len];
+  size_t offset = 0;
+  memcpy(input + offset, mac, 8);
+  offset += 8;
+  memcpy(input + offset, n, 16);
+  offset += 16;
+  memcpy(input + offset, serving_network_name, serving_network_name_len);
+  sha256(k, 16, input, total_len, output, 0);
+  for (i = 0; i < 8; i++) {
+    xsnmac[i] = output[i];
+  }
+
+  // 比较SNMAC
+  for (i = 0; i < 8; i++) {
+    if (xsnmac[i] != snmac[i]) {
+      result = AUTH_FAILED;
+    }
+  }
+
   logger.debug(ck, CK_LEN, "CK:");
   logger.debug(ik, IK_LEN, "IK:");
   logger.debug(ak_new, AK_LEN_NEW, "AK:");
 //  logger.debug(sqn, 6, "sqn:");
 //  logger.debug(amf, 2, "amf:");
+  logger.debug(snmac, 8, "SNMAC:");
+  logger.debug(xsnmac, 8, "XSNMAC:");
+  logger.debug(autn_enb, 8, "AUTN_enb:");
+  logger.debug(autn_new, 8, "AUTN:");
   logger.debug(mac, 8, "mac:");
 
   return result;

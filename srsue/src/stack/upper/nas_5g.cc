@@ -30,6 +30,7 @@
 #include "srsran/interfaces/ue_rrc_interfaces.h"
 #include "srsran/interfaces/ue_usim_interfaces.h"
 #include "srsue/hdr/stack/upper/nas_5g_procedures.h"
+#include "srsue/hdr/stack/upper/usim.h"
 
 #include <fstream>
 #include <iomanip>
@@ -217,7 +218,6 @@ int nas_5g::write_pdu(srsran::unique_byte_buffer_t pdu)
       break;
     case msg_opts::options::authentication_request:
       // 调用处理认证请求
-
       handle_authentication_request(nas_msg.authentication_request());
       break;
     case msg_opts::options::identity_request:
@@ -303,6 +303,10 @@ int nas_5g::send_registration_request()
   authentication_parameter_n_t param_n;
   set_n(param_n);
   memcpy(reg_req.authentication_parameter_n.n.data(), &param_n, 16);
+  // machi：将生成的随机数N保存下来
+  for (int i = 0; i < 16; i++) {
+    usim::n[i] = reg_req.authentication_parameter_n.n.data()[i];
+  }
   logger.info(reg_req.authentication_parameter_n.n.data(),
               reg_req.authentication_parameter_n.n.size(),
               "Registration request N");

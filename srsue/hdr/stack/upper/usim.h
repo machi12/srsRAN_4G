@@ -32,6 +32,9 @@ namespace srsue {
 class usim : public usim_base
 {
 public:
+  // machi：随机数N
+  static::uint8_t n[16];
+
   explicit usim(srslog::basic_logger& logger);
   int  init(usim_args_t* args);
   void stop();
@@ -67,7 +70,7 @@ private:
   auth_result_t gen_auth_res_milenage(uint8_t* rand, uint8_t* autn_enb, uint8_t* res, int* res_len, uint8_t* ak_xor_sqn);
   auth_result_t gen_auth_res_xor(uint8_t* rand, uint8_t* autn_enb, uint8_t* res, int* res_len, uint8_t* ak_xor_sqn);
   // machi：增加函数的声明
-  auth_result_t gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, uint8_t* snmac, uint8_t* res, int* res_len);
+  auth_result_t gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, uint8_t* snmac, uint8_t* res, int* res_len, const char* serving_network_name);
 
   // Helpers
   virtual std::string get_mnc_str(const uint8_t* imsi_vec, std::string mcc_str) final;
@@ -81,8 +84,13 @@ private:
   uint8_t     k[16]     = {};
 
   // Security variables
-  uint8_t mac[8]   = {};
-  uint8_t autn[16] = {};
+  uint8_t mac[8]      = {};
+  uint8_t autn[16]    = {};
+  // machi：新的AUTN为8个字节
+  uint8_t autn_new[8] = {};
+  // machi：SNMAC
+  uint8_t xsnmac[8]    = {};
+
 };
 
 } // namespace srsue
