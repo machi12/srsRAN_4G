@@ -30,6 +30,9 @@ using namespace srsran;
 
 namespace srsue {
 
+// 定义静态成员
+uint8_t usim::n[16] = {};
+
 usim::usim(srslog::basic_logger& logger) : usim_base(logger) {}
 
 int usim::init(usim_args_t* args)
