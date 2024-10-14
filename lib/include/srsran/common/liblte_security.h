@@ -315,7 +315,7 @@ LIBLTE_ERROR_ENUM liblte_security_milenage_f1_new(uint8* k, uint8* op_c, uint8* 
 LIBLTE_ERROR_ENUM liblte_security_milenage_f1_star(uint8* k, uint8* op, uint8* rand, uint8* sqn, uint8* amf, uint8* mac_s);
 
 // machi：声明新的f1star函数
-LIBLTE_ERROR_ENUM liblte_security_milenage_f1_star_new(uint8* k, uint8* op_c, uint8* rand, uint8* ak)
+LIBLTE_ERROR_ENUM liblte_security_milenage_f1_star_new(uint8* k, uint8* op_c, uint8* rand, uint8* ak);
 
 /*********************************************************************
     Name: liblte_security_milenage_f2345
