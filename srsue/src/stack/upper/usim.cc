@@ -24,6 +24,7 @@
 #include "srsran/common/standard_streams.h"
 // machi：引入sha256算法所在头文件
 #include "srsran/common/ssl.h"
+#include <cstring> // for strlen
 #include <sstream>
 
 using namespace srsran;
@@ -344,17 +345,23 @@ auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, 
 //    ak_xor_sqn[i] = sqn[i] ^ ak[i];
 //  }
 
+  std::array<uint8_t, 32> snName = {
+      0x35, 0x47, 0x3a, 0x6d, 0x6e, 0x63, 0x30, 0x39,
+      0x33, 0x2e, 0x6d, 0x63, 0x63, 0x32, 0x30, 0x38,
+      0x2e, 0x33, 0x67, 0x70, 0x70, 0x6e, 0x65, 0x74,
+      0x77, 0x6f, 0x72, 0x6b, 0x2e, 0x6f, 0x72, 0x67
+  };
+
   // 计算SNMAC
   uint8_t output[32];
-  size_t serving_network_name_len = strlen(serving_network_name);
-  size_t total_len = 16 + 8 + serving_network_name_len;
+  size_t total_len = 16 + 8 + snName.size();  // 使用 snName.size() 替代
   uint8_t* input = new uint8_t[total_len];
   size_t offset = 0;
   memcpy(input + offset, n, 16);
   offset += 16;
   memcpy(input + offset, mac, 8);
   offset += 8;
-  memcpy(input + offset, serving_network_name, serving_network_name_len);
+  memcpy(input + offset, snName.data(), snName.size()); // 修改此行
   sha256(k, 16, input, total_len, output, 0);
   for (i = 0; i < 8; i++) {
     xsnmac[i] = output[i + 24];
@@ -362,7 +369,7 @@ auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, 
 
   // 比较SNMAC
   for (i = 0; i < 8; i++) {
-    if (xsnmac[i] != snmac[i]) {
+    if(xsnmac[i] != snmac[i]) {
       result = AUTH_FAILED;
     }
   }
