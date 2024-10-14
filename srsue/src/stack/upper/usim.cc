@@ -356,7 +356,6 @@ auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, 
   std::vector<uint8_t> out(32);
 
   // 计算SNMAC
-  uint8_t output[32];
   size_t total_len = 16 + 8 + 32;
   uint8_t input[total_len];
   size_t offset = 0;
@@ -368,7 +367,7 @@ auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, 
   sha256_hash(out.data(), input, total_len);
 
   for (i = 0; i < 8; i++) {
-    xsnmac[i] = output[i + 24];
+    xsnmac[i] = out[i + 24];
   }
 
   // 比较SNMAC
