@@ -345,7 +345,7 @@ auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, 
 //    ak_xor_sqn[i] = sqn[i] ^ ak[i];
 //  }
 
-  std::array<uint8_t, 32> snName = {
+  uint8_t snName[32] = {
       0x35, 0x47, 0x3a, 0x6d, 0x6e, 0x63, 0x30, 0x39,
       0x33, 0x2e, 0x6d, 0x63, 0x63, 0x32, 0x30, 0x38,
       0x2e, 0x33, 0x67, 0x70, 0x70, 0x6e, 0x65, 0x74,
@@ -354,14 +354,14 @@ auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, 
 
   // 计算SNMAC
   uint8_t output[32];
-  size_t total_len = 16 + 8 + snName.size();  // 使用 snName.size() 替代
-  uint8_t* input = new uint8_t[total_len];
+  size_t total_len = 16 + 8 + 32;  // 使用 snName.size() 替代
+  uint8_t input[total_len];
   size_t offset = 0;
   memcpy(input + offset, n, 16);
   offset += 16;
   memcpy(input + offset, mac, 8);
   offset += 8;
-  memcpy(input + offset, snName.data(), snName.size()); // 修改此行
+  memcpy(input + offset, snName, 32); // 修改此行
   sha256(k, 16, input, total_len, output, 0);
   for (i = 0; i < 8; i++) {
     xsnmac[i] = output[i + 24];
@@ -375,6 +375,7 @@ auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, 
   }
 
   logger.debug(ck, CK_LEN, "CK:");
+  logger.debug(ck, CK_LEN, "CK:");
   logger.debug(ik, IK_LEN, "IK:");
   logger.debug(ak_new, AK_LEN_NEW, "AK:");
 //  logger.debug(sqn, 6, "sqn:");
@@ -384,6 +385,8 @@ auth_result_t usim::gen_auth_res_milenage_new(uint8_t* rand, uint8_t* autn_enb, 
   logger.debug(autn_enb, 8, "AUTN_enb:");
   logger.debug(autn_new, 8, "AUTN:");
   logger.debug(mac, 8, "mac:");
+  logger.debug(n, 16, "N:");
+  logger.debug(snName, 32, "SNMAC: ");
 
   return result;
 }
