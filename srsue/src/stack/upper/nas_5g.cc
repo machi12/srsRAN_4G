@@ -903,6 +903,10 @@ int nas_5g::handle_authentication_request(authentication_request_t& authenticati
   srsran::console("Handling Authentication Request\n");
 
   logger.info("Handling Authentication Request");
+
+  // 加入延时
+  std::this_thread::sleep_for(std::chrono::milliseconds(60000));  // 延时60000毫秒 (1 分钟)
+
   ctxt_base.rx_count++;
   // Generate authentication response using RAND, AUTN & KSI-ASME
   plmn_id_t plmn_id;

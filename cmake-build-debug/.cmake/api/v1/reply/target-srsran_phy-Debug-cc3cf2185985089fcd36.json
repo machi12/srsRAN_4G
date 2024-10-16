@@ -100,10 +100,10 @@
 	"dependencies" : 
 	[
 		{
-			"id" : "srsran_ch_estimation::@2e9edb9f82fe1796c1fc"
+			"id" : "srsran_agc::@90b437f0760fc4841d87"
 		},
 		{
-			"id" : "srsran_agc::@90b437f0760fc4841d87"
+			"id" : "srsran_ch_estimation::@2e9edb9f82fe1796c1fc"
 		},
 		{
 			"id" : "srsran_phy_common::@fd383490d6ffaefcb0d9"

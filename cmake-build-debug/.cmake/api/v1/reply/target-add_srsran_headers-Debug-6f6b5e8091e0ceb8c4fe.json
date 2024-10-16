@@ -1334,11 +1334,6 @@
 		},
 		{
 			"backtrace" : 1,
-			"path" : "lib/include/srsran/common/rotate-bits.h",
-			"sourceGroupIndex" : 0
-		},
-		{
-			"backtrace" : 1,
 			"path" : "lib/include/srsran/common/rwlock_guard.h",
 			"sourceGroupIndex" : 0
 		},
@@ -2970,6 +2965,11 @@
 		{
 			"backtrace" : 1,
 			"path" : "lib/include/srsran/upper/pdcp_metrics.h",
+			"sourceGroupIndex" : 0
+		},
+		{
+			"backtrace" : 1,
+			"path" : "lib/src/common/rotate-bits.h",
 			"sourceGroupIndex" : 0
 		},
 		{
